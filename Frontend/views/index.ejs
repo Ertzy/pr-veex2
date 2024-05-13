@@ -1,5 +1,7 @@
 <%- include('./partials/header.ejs')  %>
 
+<a href="smoothies">Smott</a>
+
 <% if (user) { %>
     <div class="form-container">
         <h1 class="h1submit">Submit quote</h1>
@@ -28,12 +30,13 @@
     const form = document.querySelector('.publishform')
     const liste = document.querySelector('.onePost')
     const list = document.querySelector('.contentList')
+    const link = "http://localhost:6969"
 
     function refresh(){
         location.reload(true);
     }
     async function hade(){ 
-        const response = await fetch('http://localhost:6969/post') 
+        const response = await fetch(`${link}/post`) 
         const post = await response.json();
 
         liste.innerHTML = ''; // Clear previous content
@@ -57,7 +60,7 @@
 
         
         try{
-            const res = await fetch('http://localhost:6969/add', {
+            const res = await fetch(`${link}/add`, {
                 method: 'POST',
                 body: JSON.stringify({content}),
                 headers: {'Content-type': 'application/json'}
@@ -73,7 +76,7 @@
         }
     })
     async function hei(){ 
-        const response = await fetch('http://localhost:6969/posts') 
+        const response = await fetch(`${link}/posts`) 
         const posts = await response.json();
 
         list.innerHTML = ''; // Clear previous content
@@ -96,7 +99,7 @@
     async function deletes(id){
             console.log(id)
             try{
-                const res = await fetch('http://localhost:6969/delete', {
+                const res = await fetch(`${link}/delete`, {
                     method: 'POST',
                     body: JSON.stringify({id}),
                     headers: {'Content-type': 'application/json'}
