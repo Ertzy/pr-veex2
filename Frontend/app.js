@@ -22,4 +22,5 @@ mongoose.connect(dbURL, {})
 // routes
 app.get('*', checkUser);
 app.get('/', (req, res) => res.render('index'));
+app.get('/smoothies', requireAuth, (req, res) => res.render('smoothies'))
 app.use(authRoutes)
