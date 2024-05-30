@@ -47,9 +47,11 @@ a{
   text-align: center;
 }
 
-.errormeld{
+.error{
   background-color: lightcoral;
   color: black;
+  text-align: center;
+  max-width: 20%;
   
 }
 

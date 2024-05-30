@@ -7,7 +7,7 @@ const getContent = async (req, res) =>{
 
 const getPosts = async (req, res) =>{
     try {
-        const posts = await visualScreen.find();
+        const posts = await visualScreen.find().sort({_id:-1}).limit(10);
         res.json(posts);
       } catch (err) {
         res.status(500).json({ message: err.message });
